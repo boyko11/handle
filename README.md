@@ -2,6 +2,7 @@ handle
 =========
 
 simple Handlebars js demo Java web app
+
 to run it: mvn tomcat7:run
 
 go to http://localhost:7878/handle/
