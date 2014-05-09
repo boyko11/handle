@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.u {text-decoration:underline; float:left;width:230px}
+.record-label {float:left;width:150px}
+.stable-container {border:2px solid #a1a1a1;margin-top:20px;font-size:15px;padding:10px 40px;background:#dddddd;width:600px;border-radius:25px;}
+.button {float:left; width:125px;}
+a:link {color:green;}
+a:visited {color:green;}
+a:hover {color:blue;}

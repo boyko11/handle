@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/lib/jquery-2.1.1.js"></script>
+    <script src="js/lib/handlebars-v1.3.0.js"></script>
+    <script src="js/app/index.js"></script>
+    <script src="js/app/donkey.js"></script>
+    <link rel="stylesheet" href="css/app/main.css">
+</head>
+<body>
+
+    <h1 style="text-align:center"> Hey Donkeys!!! </h1>
+    
+    <div style="margin-left:50px;"> What a darn good Donkey Day it is!!!</div>
+    
+    <div style="margin-left:50px;margin-top:25px;">
+        <div class="button"><button id='get-donkeys-button'>Get Donkeys</button></div>
+        <div class="button"><button id='reset-stable-template-populated'>Reset</button></div>
+        <div style="clear: both;"/>
+    </div>
+    
+    <div style="margin-left:50px;margin-top:20px;" id="stable-template-populated">
+    </div>
+    
+    
+    <script id="stable-template" type="text/x-handlebars-template">
+
+	    <div class="stable-container">
+        
+	        <div class="stable-class">
+	          <div class="record-label">Stable Name: </div><div class="u"> {{name}}</div>
+	          <div style="clear: both;"/>
+	          <div class="record-label">Stable Location:</div> <div class="u">{{location}}</div>
+	          <div style="clear: both;"/>
+              <div class="record-label">Stable Website Link:</div> <div class="u">{{{websiteLink}}}</div>
+              <div style="clear: both;"/>
+              <div class="record-label">Owner First Name:</div> <div class="u">{{owner.firstName}}</div>
+              <div style="clear: both;"/>
+              <div class="record-label">Owner Last Name:</div> <div class="u">{{owner.lastName}}</div>
+              <div style="clear: both;"/>
+              <div class="record-label">Owner Full Name:</div> <div class="u">{{fullName owner}}</div>
+              <div style="clear: both;"/>
+	        </div>
+        
+	        <div style="margin-top:15px;">
+	            <div>Here are Your Donkeys: </div>
+	            {{#donkeys}}
+	                <dl>
+	                  <dd><div class="record-label">Name:</div><div class="u"> {{name}} </div><div style="clear: both;"/></dt>
+	                  <dd><div class="record-label">Temper:</div> <div class="u"> {{temper}} </div><div style="clear: both;"/></dd>
+	                  <dd><div class="record-label">Weight:</div><div class="u"> {{weight}} </div><div style="clear: both;"/></dd>
+	                  <dd><div class="record-label">Height:</div> <div class="u"> {{height}} </div><div style="clear: both;"/></dd>
+                      <dd><div class="record-label">Stable:</div> <div class="u"> {{../name}}, {{../location}} </div><div style="clear: both;"/></dd>
+	                </dl>
+	                <div>---------------------------------------------------------------------------------------------------</div>
+	            {{/donkeys}}
+	        </div>
+
+            {{! some comment }}
+            {{!-- another comment --}}
+	    </div>
+
+    </script>
+
+</body>
+</html>
