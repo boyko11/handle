@@ -52,6 +52,9 @@
 	                  <dd><div class="record-label">Weight:</div><div class="u"> {{weight}} </div><div style="clear: both;"/></dd>
 	                  <dd><div class="record-label">Height:</div> <div class="u"> {{height}} </div><div style="clear: both;"/></dd>
                       <dd><div class="record-label">Stable:</div> <div class="u"> {{../name}}, {{../location}} </div><div style="clear: both;"/></dd>
+                      <dd><div class="record-label">Siblings:</div> <div class="u"> <a href="javascript:void(0);" class="donkeySiblingsLink" id={{@index}}>Siblings</a> </div><div style="clear: both;"/></dd>
+                      <dd><div class="record-label">This Donkey Object:</div> <div class="u"> <a href="javascript:void(0);" class="donkeyDetails" id={{@index}}>Get Donkey As A Map</a> </div><div style="clear: both;"/></dd>
+
 	                </dl>
 	                <div>---------------------------------------------------------------------------------------------------</div>
 	            {{/donkeys}}
@@ -62,6 +65,28 @@
 	    </div>
 
     </script>
+    
+    
+    <div style="margin-left:300px;margin-top:20px;" id="siblings-template-populated">
+    </div>
+    
+    <script id="siblings-template" type="text/x-handlebars-template">
+        {{#each siblings}}
+            <div>{{@key}}. {{name}}: {{temper}}</div>
+            <p></p>
+        {{else}}
+            <p class="empty">Poor Donkey Has No Siblings</p>
+        {{/each}}
+    </script>
+
+    <div style="margin-left:300px;margin-top:20px;" id="donkey-detail-template-populated">
+    </div>
+    
+    <script id="donkey-detail-template" type="text/x-handlebars-template">
+        {{#each donkey}}
+            {{@key}}: {{this}}
+        {{/each}}
+    </script>    
 
 </body>
 </html>

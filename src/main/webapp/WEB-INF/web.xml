@@ -14,6 +14,26 @@
     <servlet-name>StableServlet</servlet-name>
     <url-pattern>/stable</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>DonkeySiblingsServlet</servlet-name>
+    <display-name>DonkeySiblingsServlet</display-name>
+    <description></description>
+    <servlet-class>handle.servlet.DonkeySiblingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonkeySiblingsServlet</servlet-name>
+    <url-pattern>/donkeysiblings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DonkeyServlet</servlet-name>
+    <display-name>DonkeyServlet</display-name>
+    <description></description>
+    <servlet-class>handle.servlet.DonkeyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonkeyServlet</servlet-name>
+    <url-pattern>/donkey</url-pattern>
+  </servlet-mapping>  
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

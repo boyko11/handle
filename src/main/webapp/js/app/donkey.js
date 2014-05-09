@@ -29,6 +29,34 @@ var Donkey = {
     		alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);
     	});
     		
+     },
+
+     getDonkeySiblings : function(id) {
+         
+         $.ajax({
+             url : "/handle/donkeysiblings",
+             data: {"donkeyIndex" : id}
+         }).done(function(data) {
+             
+             HandlebarsService.renderData("siblings-template", "siblings-template-populated", {siblings: data})
+             
+         }).fail(function(xhr, textStatus, errorThrown) {
+             alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);
+         });
+     },
+
+     getDonkey : function(id) {
+         
+         $.ajax({
+             url : "/handle/donkey",
+             data: {"donkeyIndex" : id}
+         }).done(function(data) {
+             
+             HandlebarsService.renderData("donkey-detail-template", "donkey-detail-template-populated", {donkey: data})
+             
+         }).fail(function(xhr, textStatus, errorThrown) {
+             alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);
+         });
      }
 }
 
