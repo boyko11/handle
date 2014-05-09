@@ -8,6 +8,7 @@ var Donkey = {
     		url : "/handle/stable",
     		
     	}).done(function(data) {
+    	    
     	    //GET THE TEMPLATE
     		var stableTemplateSource = $("#stable-template").html();
     		
@@ -20,6 +21,9 @@ var Donkey = {
     		
     		//DISPLAY the populated html to the user
     		$("#stable-template-populated").html(populatedTemplateHtml);
+    	    
+    	    //HandlebarsService.renderData("stable-template", "stable-template-populated", data);
+    		
     		
     	}).fail(function(xhr, textStatus, errorThrown) {
     		alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);
