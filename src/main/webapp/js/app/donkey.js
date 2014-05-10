@@ -31,14 +31,14 @@ var Donkey = {
     		
      },
 
-     getDonkeySiblings : function(id) {
+     getDonkeySiblings : function(id, name) {
          
          $.ajax({
              url : "/handle/donkeysiblings",
              data: {"donkeyIndex" : id}
          }).done(function(data) {
              
-             HandlebarsService.renderData("siblings-template", "siblings-template-populated", {siblings: data})
+             HandlebarsService.renderData("siblings-template", "detail-template-populated", {siblings: data, donkeyName: name})
              
          }).fail(function(xhr, textStatus, errorThrown) {
              alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);
@@ -52,7 +52,7 @@ var Donkey = {
              data: {"donkeyIndex" : id}
          }).done(function(data) {
              
-             HandlebarsService.renderData("donkey-detail-template", "donkey-detail-template-populated", {donkey: data})
+             HandlebarsService.renderData("donkey-detail-template", "detail-template-populated", {donkey: data})
              
          }).fail(function(xhr, textStatus, errorThrown) {
              alert("Hey there donkey, error happened.\nResponseText: " + xhr.responseText + "\nStatus: " + textStatus + "\nError: " + errorThrown);

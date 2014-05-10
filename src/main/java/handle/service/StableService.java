@@ -42,7 +42,7 @@ public class StableService {
         owner.lastName = "Messi";
         
         stable.owner = owner;
-        stable.websiteLink = "<a href=\"http://www.guide2midipyrenees.com/uploads/businesses/large/260412143235--three%20donkeys%20in%20stable.jpg\">Super Donkeys</a>";
+        stable.websiteLink = "<a href=\"http://www.guide2midipyrenees.com/uploads/businesses/large/260412143235--three%20donkeys%20in%20stable.jpg\" target=\"_blank\">Super Donkeys</a>";
         
         stableDB.put("1", stable);
     }
@@ -50,19 +50,19 @@ public class StableService {
     static private List<Donkey> buildSiblings() {
         
         Donkey donkey1 = new Donkey();
-        donkey1.name = "Sibling1";
+        donkey1.name = "Brother Donkey";
         donkey1.height = 17;
         donkey1.weight = 18.0;
         donkey1.temper = "Super Cool";
         
         Donkey donkey2 = new Donkey();
-        donkey2.name = "Sibling2";
+        donkey2.name = "Sister Donkey(ese)(ette)";
         donkey2.height = 1998;
         donkey2.weight = 187654.0;
         donkey2.temper = "Super Nervous";
         
         Donkey donkey3 = new Donkey();
-        donkey3.name = "Sibling3";
+        donkey3.name = "Cousin Donkey";
         donkey3.height = 7;
         donkey3.weight = 7.77;
         donkey3.temper = "Super Crazy";

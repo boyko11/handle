@@ -10,83 +10,73 @@
 </head>
 <body>
 
-    <h1 style="text-align:center"> Hey Donkeys!!! </h1>
-    
-    <div style="margin-left:50px;"> What a darn good Donkey Day it is!!!</div>
+    <h2 style="text-align:center"> What a darn good Donkey Day it is!!! </h2>
     
     <div style="margin-left:50px;margin-top:25px;">
         <div class="button"><button id='get-donkeys-button'>Get Donkeys</button></div>
         <div class="button"><button id='reset-stable-template-populated'>Reset</button></div>
-        <div style="clear: both;"/>
+        <div style="clear: both;"></div>
     </div>
     
     <div style="margin-left:50px;margin-top:20px;" id="stable-template-populated">
     </div>
     
-    
-    <script id="stable-template" type="text/x-handlebars-template">
+    <div id="main-container">
+	    <script id="stable-template" type="text/x-handlebars-template">
 
-	    <div class="stable-container">
-        
-	        <div class="stable-class">
-	          <div class="record-label">Stable Name: </div><div class="u"> {{name}}</div>
-	          <div style="clear: both;"/>
-	          <div class="record-label">Stable Location:</div> <div class="u">{{location}}</div>
-	          <div style="clear: both;"/>
-              <div class="record-label">Stable Website Link:</div> <div class="u">{{{websiteLink}}}</div>
-              <div style="clear: both;"/>
-              <div class="record-label">Owner First Name:</div> <div class="u">{{owner.firstName}}</div>
-              <div style="clear: both;"/>
-              <div class="record-label">Owner Last Name:</div> <div class="u">{{owner.lastName}}</div>
-              <div style="clear: both;"/>
-              <div class="record-label">Owner Full Name:</div> <div class="u">{{fullName owner}}</div>
-              <div style="clear: both;"/>
-	        </div>
-        
-	        <div style="margin-top:15px;">
-	            <div>Here are Your Donkeys: </div>
-	            {{#donkeys}}
-	                <dl>
-	                  <dd><div class="record-label">Name:</div><div class="u"> {{name}} </div><div style="clear: both;"/></dt>
-	                  <dd><div class="record-label">Temper:</div> <div class="u"> {{temper}} </div><div style="clear: both;"/></dd>
-	                  <dd><div class="record-label">Weight:</div><div class="u"> {{weight}} </div><div style="clear: both;"/></dd>
-	                  <dd><div class="record-label">Height:</div> <div class="u"> {{height}} </div><div style="clear: both;"/></dd>
-                      <dd><div class="record-label">Stable:</div> <div class="u"> {{../name}}, {{../location}} </div><div style="clear: both;"/></dd>
-                      <dd><div class="record-label">Siblings:</div> <div class="u"> <a href="javascript:void(0);" class="donkeySiblingsLink" id={{@index}}>Siblings</a> </div><div style="clear: both;"/></dd>
-                      <dd><div class="record-label">This Donkey Object:</div> <div class="u"> <a href="javascript:void(0);" class="donkeyDetails" id={{@index}}>Get Donkey As A Map</a> </div><div style="clear: both;"/></dd>
-
-	                </dl>
-	                <div>---------------------------------------------------------------------------------------------------</div>
-	            {{/donkeys}}
+	        <div id="stable-container">
+            
+	            <div class="stable-class">
+	              <div class="record-label">Stable Info: </div><div class="u"> {{name}}, {{location}}</div>
+	              <div style="clear: both;"/>
+                  <div class="record-label">Website Link:</div> <div class="u">{{{websiteLink}}}</div>
+                  <div style="clear: both;"/>
+                  <div class="record-label">Owner Name:</div> <div class="u">{{owner.lastName}}, {{owner.firstName}}</div>
+                  <div style="clear: both;"/>
+                  <div class="record-label">Owner Full Name:</div> <div class="u">{{fullName owner}}</div>
+                  <div style="clear: both;"/>
+	            </div>
+            
+	            <div style="margin-top:15px;">
+	                <div>Here are Your Donkeys: </div>
+		    		<div class="border-bottom" style="margin-top:10px;"></div>
+	                {{#donkeys}}
+	                    <dl>
+	                      <dd><div class="record-label">Name:</div><div class="u"> <a href="javascript:void(0);" class="donkeyDetails" id={{@index}}>{{name}}</a> </div><div style="clear: both;"/></dt>
+	                      <dd><div class="record-label">Temper:</div> <div class="u"> {{temper}} </div><div style="clear: both;"/></dd>
+	                      <dd><div class="record-label">Weight/Height:</div><div class="u"> {{weight}}/{{height}} </div><div style="clear: both;"/></dd>
+                          <dd><div class="record-label">Stable:</div> <div class="u"> {{../name}}, {{../location}} </div><div style="clear: both;"/></dd>
+                          <dd><div class="record-label">Siblings:</div> <div class="u"> <a href="javascript:void(0);" class="donkeySiblingsLink" id={{@index}} donkey-name={{name}}>Siblings</a> </div><div style="clear: both;"/></dd>
+	                    </dl>
+	                    <div class="border-bottom"></div>
+	                {{/donkeys}}
+	            </div>
+		    	<div style="margin-top:10px;text-align:center;">...And that's all the donkeys...</div>
+                {{! some comment }}
+                {{!-- another comment --}}
 	        </div>
 
-            {{! some comment }}
-            {{!-- another comment --}}
+    	</script>
+    	<script id="donkey-detail-template" type="text/x-handlebars-template">
+			<div class="details-container">
+                {{#each donkey}}
+                    <div>{{@key}}: {{this}}<div>
+                {{/each}}
+			</div>
+        </script>
+        <script id="siblings-template" type="text/x-handlebars-template">
+			<div class="details-container">
+				<div style="margin-bottom:10px">{{donkeyName}}'s siblings:</div>
+                {{#each siblings}}
+                    <div>{{name}}: {{temper}}</div>
+                    <p></p>
+                {{else}}
+                    <p class="empty">Poor Donkey Has No Siblings</p>
+                {{/each}}
+            </div>
+    	</script>
+   	    <div id="detail-template-populated">
 	    </div>
-
-    </script>
-    
-    
-    <div style="margin-left:300px;margin-top:20px;" id="siblings-template-populated">
     </div>
-    
-    <script id="siblings-template" type="text/x-handlebars-template">
-        {{#each siblings}}
-            <div>{{@key}}. {{name}}: {{temper}}</div>
-            <p></p>
-        {{else}}
-            <p class="empty">Poor Donkey Has No Siblings</p>
-        {{/each}}
-    </script>
-
-    <div style="margin-left:300px;margin-top:20px;" id="donkey-detail-template-populated">
-    </div>
-    
-    <script id="donkey-detail-template" type="text/x-handlebars-template">
-        {{#each donkey}}
-            {{@key}}: {{this}}
-        {{/each}}
-    </script>    
-
 </body>
 </html>

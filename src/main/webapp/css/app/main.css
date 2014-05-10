@@ -1,9 +1,12 @@
 @CHARSET "UTF-8";
 
-.u {text-decoration:underline; float:left;width:230px}
-.record-label {float:left;width:150px}
-.stable-container {border:2px solid #a1a1a1;margin-top:20px;font-size:15px;padding:10px 40px;background:#dddddd;width:600px;border-radius:25px;}
+.u {text-decoration:underline; float:left;width:275px;margin-top:10px;}
+.record-label {float:left;width:150px;margin-top:10px;}
+#stable-container {border:2px solid #a1a1a1;margin-top:20px;font-size:15px;padding:10px 40px;background:#dddddd;width:500px;border-radius:25px;float:left;}
+.details-container {border:2px solid #a1a1a1;margin-top:20px;margin-left:20px;font-size:15px;padding:10px 40px;background:#dddddd;width:300px;border-radius:25px;float:left;}
 .button {float:left; width:125px;}
 a:link {color:green;}
 a:visited {color:green;}
 a:hover {color:blue;}
+body {font-family: Comic Sans, Comic Sans MS, cursive;}
+.border-bottom {border-bottom:2px solid #a1a1a1;}
